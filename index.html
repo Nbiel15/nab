@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E - MANAGE - Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f7;
+        }
+        header {
+            background: linear-gradient(90deg, #007bff, #00c6ff);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        nav {
+            width: 250px;
+            background-color: #1c3a63;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 50px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        }
+        nav a {
+            display: block;
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            margin: 10px 0;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        nav a:hover {
+            background-color: #007bff;
+            transform: scale(1.05);
+        }
+        main {
+            margin-left: 280px;
+            padding: 30px;
+            background-color: #f0f4f8;
+            min-height: 100vh;
+        }
+        .content-box {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .content-box:hover {
+            transform: translateY(-5px);
+        }
+        .table-container {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        table th, table td {
+            padding: 15px;
+            text-align: left;
+        }
+        table th {
+            background-color: #007bff;
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        table tr:hover {
+            background-color: #ddd;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 5px;
+            font-size: 14px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        .btn-edit {
+            background-color: #ffc107;
+        }
+        .btn-edit:hover {
+            background-color: #e0a800;
+        }
+        .btn-delete {
+            background-color: #dc3545;
+        }
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>E - MANAGE</h1>
+</header>
+
+<nav>
+    <a href="index.html">Dashboard</a>
+    <a href="Tugas.html">Tugas</a>
+    <a href="profil.html">Profil</a>
+    <a href="kolaborator.html">Kolaborator</a>
+    <a href="Proyek.html">Proyek</a>
+
+</nav>
+
+<main>
+    <div class="content-box">
+        <h2>Proyek Saat Ini</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Proyek</th>
+                        <th>Ketua Proyek</th>
+                        <th>Anggota Tim</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Proyek 1</td>
+                        <td>Ketua 1</td>
+                        <td>Anggota 1, Anggota 2</td>
+                        <td>
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- Tambahkan baris lain di sini -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<script>
+    document.querySelectorAll('.btn-delete').forEach(button => {
+        button.addEventListener('click', function() {
+            const row = this.closest('tr');
+            row.remove();
+        });
+    });
+
+    document.querySelectorAll('.btn-edit').forEach(button => {
+        button.addEventListener('click', function() {
+            const row = this.closest('tr');
+            const projectName = row.cells[0].innerText;
+            const projectLeader = row.cells[1].innerText;
+            const projectTeam = row.cells[2].innerText;
+
+            // Implementasikan logika untuk mengedit data sesuai kebutuhan Anda
+            alert(`Edit Proyek: ${projectName}\nKetua: ${projectLeader}\nAnggota: ${projectTeam}`);
+        });
+    });
+</script>
+
+
+</body>
+</html>
